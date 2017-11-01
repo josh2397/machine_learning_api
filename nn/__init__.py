@@ -6,5 +6,3 @@ from nn import sigmoid
 from nn import softmax
 from nn import convolution
 from nn import conv1d
-from nn import CrossEntropyError
-from nn import QuadraticError
