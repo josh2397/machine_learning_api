@@ -1,5 +1,5 @@
 '''
-Computes either sigmoid or sigmoid derivative
+Computes activation for given function
 
 False - sigmoid,
 True  - sigmoid derivative
@@ -16,7 +16,7 @@ import numpy as np
 
 def sigmoid(x, key):
     if key == 0:
-        return np.nan_to_num(1/1+np.exp(-(x)))
+        return 1/(1+np.exp(-(x))) #np.nan_to_num()
     elif key == 1:
         return sigmoidNormal(x) * (1 / sigmoidNormal(x))
 
@@ -69,19 +69,24 @@ def celu(x, a, key):
             return np.exp(x/a)
 
 def softmax(x, key):
-    
+    if key == 0:
+        sum = 0
+        output = []
+        for i in x:
+            sum = sum + np.exp(x[i-1])
+        #change for loop range to number of classes
+        for i in x:
+            output.append(np.exp(x[i-1]) / sum)
 
-'''def __init__(self, x):
+        return output
 
-    self.x = x
-    #self.deriv = deriv
+    elif key == 1:
+        return 1
+        #implement softmax derivative
 
-    if (self.deriv == False):
-        self.sigmoidNormal()
-
-    elif(self.deriv == True):
-        self.sigmoidDerivative()'''
-
-
-
+def softplus(x, key):
+    if key == 0:
+        return np.log(1 + np.exp(x))
+    elif key == 1:
+        return 1 / (1 + np.exp(-(x)))
 
