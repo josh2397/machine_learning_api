@@ -9,7 +9,11 @@ import numpy as np
 
 
 def truePositives(labels, predictions):
-    return 1
+    #postponed 
+    truePositives = 0
+    for instance in labels and predictions:
+        if labels == predictions:
+             truePositives = truePositives + 1
 def trueNegatives(labels, predictions):
     return 1
 def falsePositives(labels, predictions):
@@ -34,5 +38,30 @@ def sensitivityAtSpecificity():
 
 def accuracy(labels, predictions):
     return 1
+
+def sensitivity():
+    return 1
+
+def specificity():
+    return 1
+
+def f1Score():
+    return 1
+
+def falseNegativeRate():
+    return 1
+
+def falseDiscoveryRate():
+    return 1
+
+def falsePostiveRate():
+    return 1
+
+def negativePredictiveValue():
+    return 1
+
+def mcc():
+    return 1
+    
 
 
